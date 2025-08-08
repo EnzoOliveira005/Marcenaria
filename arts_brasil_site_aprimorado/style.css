@@ -1,0 +1,466 @@
+/* Reset e configurações globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+html {
+  scroll-behavior: smooth;
+  
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f8f4f0 0%, #fff9f3 100%);
+  color: #2c1810;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Animações keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #4b2e18 0%, #6b3e28 100%);
+  color: white;
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  background: rgba(75, 46, 24, 0.95);
+  padding: 15px 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: fadeInLeft 1s ease;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  animation: fadeInRight 1s ease;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+nav ul li a::before {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+nav ul li a:hover::before {
+  left: 100%;
+}
+
+nav ul li a:hover {
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+}
+
+/* Banner */
+.banner {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/banner.jpg') no-repeat center center/cover;
+  padding: 180px 0 120px;
+  text-align: center;
+  color: white;
+  position: relative;
+  margin-top: 80px;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(75, 46, 24, 0.3), rgba(107, 62, 40, 0.3));
+}
+
+.banner .container {
+  position: relative;
+  z-index: 2;
+}
+
+.banner h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  animation: fadeInUp 1s ease 0.3s both;
+  line-height: 1.2;
+}
+
+/* Botões */
+.btn {
+  background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
+  color: white;
+  padding: 18px 40px;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 1s ease 0.6s both;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(212, 165, 116, 0.4);
+}
+
+/* Seções */
+section {
+  padding: 80px 0;
+  position: relative;
+}
+
+section:nth-child(even) {
+  background: rgba(255,255,255,0.5);
+}
+
+section h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #4b2e18;
+  position: relative;
+  animation: fadeInUp 0.8s ease;
+}
+
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
+  border-radius: 2px;
+}
+
+section p {
+  font-size: 1.2rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  color: #5a3a2a;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+/* Portfólio */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.galeria img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  animation: scaleIn 0.8s ease;
+}
+
+.galeria img:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* Formulário */
+#orcamento {
+  background: linear-gradient(135deg, #4b2e18 0%, #6b3e28 100%);
+  color: white;
+}
+
+#orcamento h2 {
+  color: white;
+}
+
+#orcamento h2::after {
+  background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+form input, form select, form textarea {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+  padding: 18px 25px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.95);
+  color: #2c1810;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+form input:focus, form select:focus, form textarea:focus {
+  outline: none;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  background: white;
+}
+
+form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+form button {
+  background: linear-gradient(135deg, #d4a574 0%, #b8935f 100%);
+  color: white;
+  padding: 18px 40px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+form button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+form button:hover::before {
+  left: 100%;
+}
+
+form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(212, 165, 116, 0.4);
+}
+
+/* Contato */
+#contato p {
+  font-size: 1.3rem;
+  margin: 15px 0;
+  color: #4b2e18;
+  font-weight: 500;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #2c1810 0%, #4b2e18 100%);
+  color: white;
+  text-align: center;
+  padding: 40px 0;
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4a574, transparent);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .banner h2 {
+    font-size: 2.5rem;
+  }
+  
+  section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .galeria {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Animações de scroll */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Animação para o menu */
+nav ul li {
+  transition: transform 0.3s ease;
+}
+nav ul li:hover {
+  transform: scale(1.1);
+}
+
+/* Animação para imagens do portfólio */
+.galeria img {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.9;
+}
+.galeria img:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* Fade-in para imagens ao carregar */
+.galeria img {
+  animation: fadeIn 1s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 0.9; transform: translateY(0); }
+}
